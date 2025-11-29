@@ -1,19 +1,17 @@
-from Core.telegram_client import TelegramClient
 import os
 from dotenv import load_dotenv
+from Core.telegram_client import TelegramClient
 
-# Load environment variables from .env file
+# Load environment variables from the .env file
 load_dotenv()
 
 def main():
-    # Configuration: get from environment variables
-    api_id = os.getenv("TELEGRAM_API_ID")
-    api_hash = os.getenv("TELEGRAM_API_HASH")
+    # Get values from .env file
     bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
     group_id = os.getenv("TELEGRAM_GROUP_ID")
 
     # Initialize the Telegram client
-    telegram_bot = TelegramClient(api_id, api_hash, bot_token, group_id)
+    telegram_bot = TelegramClient(bot_token, group_id)
 
     try:
         # Start the Telegram bot
